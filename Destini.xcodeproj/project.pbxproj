@@ -12,7 +12,7 @@
 		CCF6AF8021B8D18400C6FDC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF6AF7F21B8D18400C6FDC8 /* AppDelegate.swift */; };
 		CCF6AF8221B8D18400C6FDC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF6AF8121B8D18400C6FDC8 /* ViewController.swift */; };
 		CCF6AF8521B8D18400C6FDC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCF6AF8321B8D18400C6FDC8 /* Main.storyboard */; };
-		CCF6AF8721B8D18500C6FDC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCF6AF8621B8D18500C6FDC8 /* Assets.xcassets */; };
+		CCF6AF8721B8D18500C6FDC8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCF6AF8621B8D18500C6FDC8 /* Images.xcassets */; };
 		CCF6AF8A21B8D18500C6FDC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCF6AF8821B8D18500C6FDC8 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -23,7 +23,7 @@
 		CCF6AF7F21B8D18400C6FDC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCF6AF8121B8D18400C6FDC8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CCF6AF8421B8D18400C6FDC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CCF6AF8621B8D18500C6FDC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CCF6AF8621B8D18500C6FDC8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CCF6AF8921B8D18500C6FDC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CCF6AF8B21B8D18500C6FDC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,7 +78,7 @@
 		CCF6AF9221B8D1C800C6FDC8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CCF6AF8621B8D18500C6FDC8 /* Assets.xcassets */,
+				CCF6AF8621B8D18500C6FDC8 /* Images.xcassets */,
 				CCF6AF8321B8D18400C6FDC8 /* Main.storyboard */,
 			);
 			path = View;
@@ -161,7 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCF6AF8A21B8D18500C6FDC8 /* LaunchScreen.storyboard in Resources */,
-				CCF6AF8721B8D18500C6FDC8 /* Assets.xcassets in Resources */,
+				CCF6AF8721B8D18500C6FDC8 /* Images.xcassets in Resources */,
 				CCF6AF8521B8D18400C6FDC8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
