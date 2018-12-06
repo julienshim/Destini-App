@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC7257FE21B8F6FB0050BAA1 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7257FD21B8F6FB0050BAA1 /* Story.swift */; };
+		CC72580021B8F7D60050BAA1 /* StoryBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7257FF21B8F7D60050BAA1 /* StoryBank.swift */; };
 		CCF6AF8021B8D18400C6FDC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF6AF7F21B8D18400C6FDC8 /* AppDelegate.swift */; };
 		CCF6AF8221B8D18400C6FDC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF6AF8121B8D18400C6FDC8 /* ViewController.swift */; };
 		CCF6AF8521B8D18400C6FDC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCF6AF8321B8D18400C6FDC8 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC7257FD21B8F6FB0050BAA1 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		CC7257FF21B8F7D60050BAA1 /* StoryBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBank.swift; sourceTree = "<group>"; };
 		CCF6AF7C21B8D18400C6FDC8 /* Destini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Destini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF6AF7F21B8D18400C6FDC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCF6AF8121B8D18400C6FDC8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +69,8 @@
 		CCF6AF9121B8D1B700C6FDC8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CC7257FD21B8F6FB0050BAA1 /* Story.swift */,
+				CC7257FF21B8F7D60050BAA1 /* StoryBank.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -169,6 +175,8 @@
 			files = (
 				CCF6AF8221B8D18400C6FDC8 /* ViewController.swift in Sources */,
 				CCF6AF8021B8D18400C6FDC8 /* AppDelegate.swift in Sources */,
+				CC7257FE21B8F6FB0050BAA1 /* Story.swift in Sources */,
+				CC72580021B8F7D60050BAA1 /* StoryBank.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
