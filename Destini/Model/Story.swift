@@ -13,11 +13,13 @@ class Story {
     let storyText : String
     let choiceA : String
     let choiceB : String
+    let pause : Int
     
-    init(text: String, a: String, b: String) {
+    init(text: String, a: String, b: String, p: Int) {
         storyText = text
         choiceA = a
         choiceB = b
+        pause = p
     }
     
 }

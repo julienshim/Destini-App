@@ -72,15 +72,14 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="509"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8N-cr-NzZ">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="t1Y-no-iLQ">
                                         <rect key="frame" x="41" y="54" width="333" height="400"/>
-                                        <autoresizingMask key="autoresizingMask"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <mutableString key="text">Lorem Khaled Ipsum is a major key to success. You see the hedges, how I got it shaped up? It’s important to shape up your hedges, it’s like getting a haircut, stay fresh. Lion! Celebrate success right, the only way, apple. The key to success is to keep your head above the water, never give up. To be successful you’ve got to work hard, to make history, simple, you’ve got to make it. Eliptical talk. You do know, you do know that they don’t want you to have lunch. I’m keeping it real with you, so what you going do is have lunch. Don’t ever play yourself.</mutableString>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                             </view>
                         </subviews>
@@ -89,7 +88,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomButton" destination="Xzc-q0-2qw" id="XEh-GS-Moy"/>
-                        <outlet property="storyTextView" destination="K8N-cr-NzZ" id="rqL-xP-o9p"/>
+                        <outlet property="storyTextView" destination="t1Y-no-iLQ" id="jGT-Hn-FO3"/>
                         <outlet property="topButton" destination="6gj-7m-5DH" id="Ial-AQ-Bvi"/>
                     </connections>
                 </viewController>

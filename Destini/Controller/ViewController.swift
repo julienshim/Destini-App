@@ -8,12 +8,47 @@
 
 import UIKit
 
+extension String {
+    var characterArray: [Character]{
+        var characterArray = [Character]()
+        for character in self {
+            characterArray.append(character)
+        }
+        return characterArray
+    }
+}
+
+extension UITextView {
+    func typeOn(string: String) {
+        let characterArray = string.characterArray
+        var characterIndex = 0
+        Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { (timer) in
+            if characterArray[characterIndex] != "$" {
+                while characterArray[characterIndex] == " " {
+                    self.text.append(" ")
+                    characterIndex += 1
+                    if characterIndex == characterArray.count {
+                        timer.invalidate()
+                        return
+                    }
+                }
+                self.text.append(characterArray[characterIndex])
+            }
+            characterIndex += 1
+            if characterIndex == characterArray.count {
+                timer.invalidate()
+            }
+        }
+    }
+}
+
 class ViewController: UIViewController {
     
     let allStories = StoryBank()
     var storyIndex = 0;
 
-    @IBOutlet weak var storyTextView: UILabel!
+
+    @IBOutlet weak var storyTextView: UITextView!
     @IBOutlet weak var topButton: UIButton!
     @IBOutlet weak var bottomButton: UIButton!
     
@@ -21,23 +56,42 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadText()
+        updateUI()
         
     }
-    
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         
-        print(sender.tag)
-        
+        if(sender.tag == 1) {
+            if(storyIndex == 0 || storyIndex == 1) {
+                storyIndex = 2
+            } else {
+                storyIndex = 5
+            }
+            updateUI()
+        } else {
+            if(storyIndex == 0) {
+                storyIndex = 2
+            } else if (storyIndex == 1) {
+                storyIndex = 3
+            } else if (storyIndex == 2) {
+                storyIndex = 5
+            }
+            updateUI()
+        }
         
     }
     
-    func loadText () {
+    func updateUI () {
         
-        storyTextView.text = allStories.list[storyIndex].storyText
+        topButton.isHidden = true;
+        bottomButton.isHidden = true;
         
-        // Annoying Attributed Styling
+        storyTextView.text = ""
+        storyTextView.typeOn(string: allStories.list[storyIndex].storyText)
+    
+        
+        // Attributed Styling
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
@@ -48,10 +102,18 @@ class ViewController: UIViewController {
             
         ]
         
+        // Normally setTitle, but UIButton multi-line and centering
+        
         topButton.setAttributedTitle(NSAttributedString(string: allStories.list[storyIndex].choiceA, attributes: attributes), for: .normal)
         bottomButton.setAttributedTitle(NSAttributedString(string: allStories.list[storyIndex].choiceB, attributes: attributes), for: .normal)
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + (Double(allStories.list[storyIndex].storyText.count) * 0.05 - Double(allStories.list[storyIndex].pause)*0.70)) {
+            self.topButton.isHidden = false;
+            self.bottomButton.isHidden = false;
+        }
+        
     }
+
     
     
 }
