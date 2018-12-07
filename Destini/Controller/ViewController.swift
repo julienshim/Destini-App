@@ -9,6 +9,7 @@
 import UIKit
 
 extension String {
+    
     var characterArray: [Character]{
         var characterArray = [Character]()
         for character in self {
@@ -16,9 +17,11 @@ extension String {
         }
         return characterArray
     }
+    
 }
 
 extension UITextView {
+    
     func typeOn(string: String) {
         let characterArray = string.characterArray
         var characterIndex = 0
@@ -40,6 +43,7 @@ extension UITextView {
             }
         }
     }
+    
 }
 
 class ViewController: UIViewController {
@@ -51,11 +55,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var storyTextView: UITextView!
     @IBOutlet weak var topButton: UIButton!
     @IBOutlet weak var bottomButton: UIButton!
+    @IBOutlet weak var restartButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        restartButton.isHidden = true
         updateUI()
         
     }
@@ -69,14 +74,18 @@ class ViewController: UIViewController {
                 storyIndex = 5
             }
             updateUI()
-        } else {
+        } else if (sender.tag == 2) {
             if(storyIndex == 0) {
                 storyIndex = 2
             } else if (storyIndex == 1) {
                 storyIndex = 3
             } else if (storyIndex == 2) {
-                storyIndex = 5
+                storyIndex = 4
             }
+            updateUI()
+        } else {
+            storyIndex = 0
+            restartButton.isHidden = true
             updateUI()
         }
         
@@ -84,14 +93,32 @@ class ViewController: UIViewController {
     
     func updateUI () {
         
+        hideButtons()
+        
+        updateButtons()
+
+        typeStory()
+   
+    }
+    
+    func showButtons(choice: Bool, restart: Bool) {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + (Double(allStories.list[storyIndex].storyText.count)*0.049)) {
+            self.topButton.isHidden = choice;
+            self.bottomButton.isHidden = choice;
+            self.restartButton.isHidden = restart;
+        }
+        
+    }
+    
+    func hideButtons() {
+        
         topButton.isHidden = true;
         bottomButton.isHidden = true;
         
-        storyTextView.text = ""
-        storyTextView.typeOn(string: allStories.list[storyIndex].storyText)
+    }
     
-        
-        // Attributed Styling
+    func updateButtons() {
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
@@ -99,22 +126,27 @@ class ViewController: UIViewController {
         let attributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.white,
             .paragraphStyle: paragraphStyle
-            
         ]
         
-        // Normally setTitle, but UIButton multi-line and centering
-        
         topButton.setAttributedTitle(NSAttributedString(string: allStories.list[storyIndex].choiceA, attributes: attributes), for: .normal)
+        
         bottomButton.setAttributedTitle(NSAttributedString(string: allStories.list[storyIndex].choiceB, attributes: attributes), for: .normal)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + (Double(allStories.list[storyIndex].storyText.count) * 0.05 - Double(allStories.list[storyIndex].pause)*0.70)) {
-            self.topButton.isHidden = false;
-            self.bottomButton.isHidden = false;
+        
+        if (storyIndex == 3 || storyIndex == 4 || storyIndex == 5) {
+            showButtons(choice: true, restart: false)
+        } else {
+            showButtons(choice: false, restart: true)
         }
         
     }
+    
+    func typeStory() {
+        
+        storyTextView.text = ""
+        storyTextView.typeOn(string: allStories.list[storyIndex].storyText)
+        
+    }
 
-    
-    
 }
 
