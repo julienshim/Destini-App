@@ -76,7 +76,7 @@ class ViewController: UIViewController {
             updateUI()
         } else if (sender.tag == 2) {
             if(storyIndex == 0) {
-                storyIndex = 2
+                storyIndex = 1
             } else if (storyIndex == 1) {
                 storyIndex = 3
             } else if (storyIndex == 2) {
@@ -84,9 +84,7 @@ class ViewController: UIViewController {
             }
             updateUI()
         } else {
-            storyIndex = 0
-            restartButton.isHidden = true
-            updateUI()
+            restart()
         }
         
     }
@@ -96,7 +94,7 @@ class ViewController: UIViewController {
         hideButtons()
         
         updateButtons()
-
+        
         typeStory()
    
     }
@@ -146,6 +144,12 @@ class ViewController: UIViewController {
         storyTextView.text = ""
         storyTextView.typeOn(string: allStories.list[storyIndex].storyText)
         
+    }
+    
+    func restart() {
+        storyIndex = 0
+        restartButton.isHidden = true
+        updateUI()
     }
 
 }
