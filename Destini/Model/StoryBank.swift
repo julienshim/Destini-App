@@ -35,5 +35,5 @@ class StoryBank {
         list.append(Story(text: "You bond with the murderer while crooning verses of \"Can you feel the love tonight\".\(pause) He drops you off at the next town.\(pause) Before you go he asks if you know any good places to dump bodies.\(pause) You reply: \"Try the pier.\"", a: "", b: ""))
         
     }
-
+    
 }

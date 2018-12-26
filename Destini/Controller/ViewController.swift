@@ -50,8 +50,8 @@ class ViewController: UIViewController {
     
     let allStories = StoryBank()
     var storyIndex = 0;
-
-
+    
+    
     @IBOutlet weak var storyTextView: UITextView!
     @IBOutlet weak var topButton: UIButton!
     @IBOutlet weak var bottomButton: UIButton!
@@ -96,7 +96,7 @@ class ViewController: UIViewController {
         updateButtons()
         
         typeStory()
-   
+        
     }
     
     func showButtons(choice: Bool, restart: Bool) {
@@ -151,6 +151,5 @@ class ViewController: UIViewController {
         restartButton.isHidden = true
         updateUI()
     }
-
+    
 }
-
