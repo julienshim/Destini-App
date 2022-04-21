@@ -15,9 +15,9 @@ class Story {
     let choiceB : String
     
     init(text: String, a: String, b: String) {
-        storyText = text
-        choiceA = a
-        choiceB = b
+        self.storyText = text
+        self.choiceA = a
+        self.choiceB = b
     }
     
 }

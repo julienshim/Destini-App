@@ -43,14 +43,11 @@ extension UITextView {
             }
         }
     }
-    
 }
 
 class ViewController: UIViewController {
     
-    let allStories = StoryBank()
-    var storyIndex = 0;
-    
+    var storyBrain = StoryBrain()
     
     @IBOutlet weak var storyTextView: UITextView!
     @IBOutlet weak var topButton: UIButton!
@@ -60,96 +57,68 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        restartButton.isHidden = true
+        restart()
         updateUI()
         
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-        
-        if(sender.tag == 1) {
-            if(storyIndex == 0 || storyIndex == 1) {
-                storyIndex = 2
-            } else {
-                storyIndex = 5
-            }
-            updateUI()
-        } else if (sender.tag == 2) {
-            if(storyIndex == 0) {
-                storyIndex = 1
-            } else if (storyIndex == 1) {
-                storyIndex = 3
-            } else if (storyIndex == 2) {
-                storyIndex = 4
-            }
-            updateUI()
+        let userChoice = sender.tag
+        if userChoice == 1 || userChoice == 2 {
+            storyBrain.nextStory(userChoice: userChoice)
         } else {
             restart()
         }
-        
+        updateUI()
     }
     
     func updateUI () {
-        
         hideButtons()
-        
         updateButtons()
-        
         typeStory()
-        
     }
     
     func showButtons(choice: Bool, restart: Bool) {
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + (Double(allStories.list[storyIndex].storyText.count)*0.049)) {
-            self.topButton.isHidden = choice;
-            self.bottomButton.isHidden = choice;
-            self.restartButton.isHidden = restart;
+        let showButtonDelay = Double(storyBrain.getStoryTextLength()) * 0.049;
+        DispatchQueue.main.asyncAfter(deadline: .now() + showButtonDelay) {
+            self.topButton.isHidden = choice
+            self.bottomButton.isHidden = choice
+            self.restartButton.isHidden = restart
         }
-        
     }
     
     func hideButtons() {
-        
         topButton.isHidden = true;
         bottomButton.isHidden = true;
-        
     }
     
     func updateButtons() {
         
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .center
+//        let paragraphStyle = NSMutableParagraphStyle()
+//        paragraphStyle.alignment = .center
         
-        let attributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.white,
-            .paragraphStyle: paragraphStyle
-        ]
+        let (choiceA, choiceB) = storyBrain.getChoices()
+        topButton.setTitle(choiceA, for: .normal)
+        bottomButton.setTitle(choiceB, for: .normal)
+
+        let storyHasEnded = storyBrain.hasStoryEnded()
         
-        topButton.setAttributedTitle(NSAttributedString(string: allStories.list[storyIndex].choiceA, attributes: attributes), for: .normal)
-        
-        bottomButton.setAttributedTitle(NSAttributedString(string: allStories.list[storyIndex].choiceB, attributes: attributes), for: .normal)
-        
-        
-        if (storyIndex == 3 || storyIndex == 4 || storyIndex == 5) {
+        if storyHasEnded {
             showButtons(choice: true, restart: false)
         } else {
             showButtons(choice: false, restart: true)
         }
-        
     }
     
     func typeStory() {
-        
         storyTextView.text = ""
-        storyTextView.typeOn(string: allStories.list[storyIndex].storyText)
-        
+        let storyText = storyBrain.getStoryText()
+        storyTextView.typeOn(string: storyText)
     }
     
     func restart() {
-        storyIndex = 0
+        storyBrain.storyIndex = 0
         restartButton.isHidden = true
-        updateUI()
     }
     
 }

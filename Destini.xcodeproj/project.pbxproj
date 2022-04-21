@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CC7257FE21B8F6FB0050BAA1 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7257FD21B8F6FB0050BAA1 /* Story.swift */; };
-		CC72580021B8F7D60050BAA1 /* StoryBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7257FF21B8F7D60050BAA1 /* StoryBank.swift */; };
+		CC72580021B8F7D60050BAA1 /* StoryBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7257FF21B8F7D60050BAA1 /* StoryBrain.swift */; };
 		CCF6AF8021B8D18400C6FDC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF6AF7F21B8D18400C6FDC8 /* AppDelegate.swift */; };
 		CCF6AF8221B8D18400C6FDC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF6AF8121B8D18400C6FDC8 /* ViewController.swift */; };
 		CCF6AF8521B8D18400C6FDC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCF6AF8321B8D18400C6FDC8 /* Main.storyboard */; };
@@ -18,7 +18,7 @@
 
 /* Begin PBXFileReference section */
 		CC7257FD21B8F6FB0050BAA1 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
-		CC7257FF21B8F7D60050BAA1 /* StoryBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBank.swift; sourceTree = "<group>"; };
+		CC7257FF21B8F7D60050BAA1 /* StoryBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBrain.swift; sourceTree = "<group>"; };
 		CCF6AF7C21B8D18400C6FDC8 /* Destini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Destini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF6AF7F21B8D18400C6FDC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCF6AF8121B8D18400C6FDC8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +58,7 @@
 		CCF6AF7E21B8D18400C6FDC8 /* Destini */ = {
 			isa = PBXGroup;
 			children = (
+				CCF6AF7F21B8D18400C6FDC8 /* AppDelegate.swift */,
 				CCF6AF9421B8D1DD00C6FDC8 /* Supporting Files */,
 				CCF6AF9321B8D1D300C6FDC8 /* Controller */,
 				CCF6AF9221B8D1C800C6FDC8 /* View */,
@@ -70,7 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				CC7257FD21B8F6FB0050BAA1 /* Story.swift */,
-				CC7257FF21B8F7D60050BAA1 /* StoryBank.swift */,
+				CC7257FF21B8F7D60050BAA1 /* StoryBrain.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -87,7 +88,6 @@
 		CCF6AF9321B8D1D300C6FDC8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CCF6AF7F21B8D18400C6FDC8 /* AppDelegate.swift */,
 				CCF6AF8121B8D18400C6FDC8 /* ViewController.swift */,
 			);
 			path = Controller;
@@ -129,11 +129,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = "Julien Shim";
 				TargetAttributes = {
 					CCF6AF7B21B8D18400C6FDC8 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1320;
 					};
 				};
 			};
@@ -176,7 +177,7 @@
 				CCF6AF8221B8D18400C6FDC8 /* ViewController.swift in Sources */,
 				CCF6AF8021B8D18400C6FDC8 /* AppDelegate.swift in Sources */,
 				CC7257FE21B8F6FB0050BAA1 /* Story.swift in Sources */,
-				CC72580021B8F7D60050BAA1 /* StoryBank.swift in Sources */,
+				CC72580021B8F7D60050BAA1 /* StoryBrain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +229,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -289,6 +291,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -331,7 +334,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.julienshim.Destini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -349,7 +352,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.julienshim.Destini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
